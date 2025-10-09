@@ -1,0 +1,353 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <title>Biodata Diri</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet" />
+  <style>
+    body {
+      font-family: 'Poppins', sans-serif;
+      margin: 0;
+      padding: 40px 0;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      background: linear-gradient(-45deg, #3A5795, #7cd8ff, #5ca0f2, #a3d2ff);
+      background-size: 400% 400%;
+      animation: gradientBG 6s ease infinite;
+    }
+
+    @keyframes gradientBG {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
+
+    .container {
+      position: relative;
+      width: 600px;
+      text-align: center;
+      border-radius: 20px;
+      overflow: hidden;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+      margin-bottom: 40px;
+      background: white;
+    }
+
+    .container::after {
+      content: "";
+      position: absolute;
+      top: 90px;
+      left: 0;
+      width: 100%;
+      height: calc(100% - 90px);
+      background: linear-gradient(to bottom, #e3f5ff 0%, #c4e1ff 50%, #a3d2ff 100%);
+      z-index: 0;
+    }
+
+    .bluebox {
+      background: linear-gradient(to right, #3A5795, #7cd8ff);
+      padding: 20px 0;
+      font-size: 36px;
+      font-weight: 600;
+      color: white;
+      text-shadow: 1px 1px 4px rgba(0,0,0,0.3);
+      border-top-left-radius: 20px;
+      border-top-right-radius: 20px;
+      margin: 0;
+      position: relative;
+      z-index: 1;
+    }
+
+    .photo-wrapper {
+      position: relative;
+      display: inline-block;
+      margin: 40px 0;
+      z-index: 1;
+    }
+
+    .photo {
+      width: 350px;
+      height: 350px;
+      border-radius: 30px;
+      object-fit: cover;
+      border: 6px solid #3A5795;
+      box-shadow: 0 0 25px rgba(0,0,0,0.3);
+      transition: transform 0.6s ease, box-shadow 0.6s ease;
+      transform-origin: center;
+    }
+
+    .photo:hover {
+      transform: scale(1.1) rotate(5deg);
+      box-shadow: 0 0 35px rgba(0,0,0,0.5);
+    }
+
+    .main-content {
+      display: flex;
+      gap: 30px;
+      align-items: flex-start;
+      justify-content: center;
+      width: 90%;
+      max-width: 1300px;
+    }
+
+    .content {
+      flex: 1;
+      background: rgba(255, 255, 255, 0.8);
+      padding: 20px;
+      border-radius: 20px;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+    }
+
+    h2 {
+      margin-top: 25px;
+      color: #333;
+      text-align: left;
+      padding-left: 10px;
+    }
+
+    ul, ol {
+      text-align: left;
+      margin: 10px 20px;
+    }
+
+    table {
+      width: 100%;
+      margin-top: 20px;
+      border-collapse: collapse;
+    }
+
+    table, th, td {
+      border: 1px solid #333;
+    }
+
+    th {
+      background-color: #3A5795;
+      color: white;
+      text-align: center;
+      padding: 10px;
+    }
+
+    td {
+      padding: 10px;
+      text-align: left;
+    }
+
+    .sidebar {
+      width: 350px;
+      background: rgba(255, 255, 255, 0.85);
+      padding: 20px;
+      border-radius: 20px;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+      text-align: center;
+    }
+
+    .sidebar h3 {
+      margin-top: 0;
+      color: #3A5795;
+    }
+
+    audio, video {
+      width: 100%;
+      border-radius: 15px;
+      margin-top: 10px;
+    }
+
+    .linkedin-link {
+      display: inline-block;
+      margin-top: 20px;
+      padding: 10px 20px;
+      background: #0077B5;
+      color: white;
+      text-decoration: none;
+      border-radius: 8px;
+      font-weight: bold;
+      transition: background 0.3s ease;
+    }
+
+    .linkedin-link:hover {
+      background: #005983;
+    }
+
+    /* Tombol favorit */
+    .favorite-btn {
+      display: block;
+      margin: 20px auto 0;
+      padding: 10px 20px;
+      background: #3A5795;
+      color: white;
+      border: none;
+      border-radius: 10px;
+      font-size: 16px;
+      cursor: pointer;
+      transition: background 0.3s ease;
+    }
+
+    .favorite-btn:hover {
+      background: #2a3f73;
+    }
+
+    /* Halaman favorit tersembunyi dulu */
+    .favorite-section {
+      display: none;
+      margin-top: 20px;
+      text-align: left;
+    }
+
+    .favorite-section h4 {
+      color: #3A5795;
+      margin-bottom: 5px;
+    }
+    .fav-btn, .back-btn {
+    display: inline-block;
+    margin-top: 20px;
+    padding: 12px 24px;
+    background: #3A5795;
+    color: white;
+    font-size: 16px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background 0.3s ease, transform 0.2s ease;
+    }
+
+    .fav-btn:hover, .back-btn:hover {
+    background: #2d4373;
+    transform: scale(1.05);
+    }
+
+    .favorites-page {
+    width: 80%;
+    max-width: 700px;
+    background: rgba(255, 255, 255, 0.9);
+    padding: 30px;
+    border-radius: 20px;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.2);
+    text-align: left;
+    animation: fadeIn 0.5s ease;
+    }
+
+    .poster-row {
+    display: flex;
+    justify-content: center; /* agar posisinya di tengah */
+    gap: 20px; /* jarak antar gambar */
+    margin-top: 15px;
+    margin-bottom: 30px; /* jarak ke bagian favorit berikutnya */
+    }
+
+    .poster-row img {
+    width: 150px;      /* ukuran lebar seragam */
+    height: 220px;     /* tinggi seragam */
+    object-fit: cover; /* supaya gambar tidak terdistorsi */
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+    transition: transform 0.3s ease;
+    }
+
+    .poster-row img:hover {
+    transform: scale(1.05); /* efek saat di-hover */
+    }
+
+    @keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+    }
+  </style>
+</head>
+<body>
+
+  <!--Container judul & foto -->
+  <div class="container">
+    <h1 class="bluebox">Personal Information</h1>
+    <div class="photo-wrapper">
+      <img src="IMG_8277.JPG" alt="Foto Profil" class="photo">
+    </div>
+  </div>
+
+  <!--Halaman utama -->
+  <div class="main-content" id="main-page">
+    <!--Konten kiri -->
+    <div class="content">
+      <h2>Educational Background</h2>
+      <ol>
+        <li>20 JHS Jakarta</li>
+        <li>22 VHS Jakarta</li>
+        <li>State Polytechnic of Ujung Pandang</li>
+      </ol>
+
+      <h2>Profile</h2>
+      <table>
+        <tr><th>Data</th><th>Information</th></tr>
+        <tr><td><b>Name</b></td><td>Farrel Adinva</td></tr>
+        <tr><td><b>Student ID</b></td><td>47224025</td></tr>
+        <tr><td><b>Date of Birth</b></td><td>Jakarta, October 10th 2005</td></tr>
+        <tr><td><b>Sex</b></td><td>Male</td></tr>
+        <tr><td><b>Address</b></td><td>Jelita Street, RT 004/RW 02, Tengah Sub-district, Kramat Jati District, East Jakarta</td></tr>
+        <tr><td><b>Email</b></td><td>farreladinva@gmail.com</td></tr>
+        <tr><td><b>Hobby</b></td><td>Singing, Drawing, Designing</td></tr>
+      </table>
+    </div>
+
+    <!--Sidebar kanan -->
+    <div class="sidebar">
+      <h3>🎧 binge-listening to...</h3>
+      <audio controls>
+        <source src="benar_salah.mp3" type="audio/mp3">
+      </audio>
+
+      <h3>📺 favorite memory?</h3>
+      <video controls>
+        <source src="Round and Around (Thank You).mp4" type="video/mp4">
+      </video>
+
+      <a href="https://www.linkedin.com/in/farreladinva" class="linkedin-link" target="_blank">🔗 LinkedIn Profile</a>
+
+      <!--Tombol ke halaman favorit -->
+      <button class="fav-btn" onclick="showFavorites()">See My Favorites</button>
+    </div>
+  </div>
+
+  <!--Halaman Favorites (disembunyikan awalnya) -->
+  <div class="favorites-page" id="favorites-page" style="display: none;">
+    <h2>Favorite Movie</h2>
+    <ul>
+      <li>Tangled</li>
+      <li>Toy Story</li>
+      <li>Cars</li>
+    </ul>
+
+    <div class="poster-row">
+    <img src="Tangled.jpeg" alt="Tangled">
+    <img src="Toy story.jpg" alt="Toy Story">
+    <img src="Cars.jpg" alt="Cars">
+    </div>
+
+    <h2>Favorite K-Drama</h2>
+    <ul>
+      <li>Penthouse</li>
+      <li>Reply 1988</li>
+      <li>When Life Gives You Tangerines</li>
+    </ul>
+    
+    <div class="poster-row">
+    <img src="penthouse.webp" alt="penthouse">
+    <img src="reply 1988.jpg" alt="reply 1988">
+    <img src="wlgyt.jpg" alt="wlgyt">
+    </div>
+
+    <button class="back-btn" onclick="goBack()">Back</button>
+  </div>
+
+  <script>
+    function showFavorites() {
+      document.getElementById('main-page').style.display = 'none';
+      document.getElementById('favorites-page').style.display = 'block';
+    }
+
+    function goBack() {
+      document.getElementById('favorites-page').style.display = 'none';
+      document.getElementById('main-page').style.display = 'flex';
+    }
+  </script>
+
+</body>
