@@ -218,53 +218,48 @@
       background: #2d4373;
       transform: scale(1.05);
     }
-    
-    /* 🧊 Overlay untuk CV */
+
+        /* overlay pusat */
     .cv-overlay {
       position: fixed;
       top: 0;
       left: 0;
       width: 100%;
       height: 100%;
-      background: rgba(0, 0, 0, 0.5);
-      backdrop-filter: blur(8px);
+      background: rgba(0,0,0,0.55);
+      backdrop-filter: blur(6px);
       display: none;
       justify-content: center;
       align-items: center;
+      padding: 12px;            /* beri sedikit padding agar tidak nempel ke tepi layar */
+      box-sizing: border-box;
       z-index: 999;
     }
     
-    /* 📝 Kontainer CV */
+    /* container shrink-wrap sesuai isi (gambar) */
     .cv-container {
       background: white;
       border-radius: 12px;
-      width: 80%;
-      height: 85%;
-      box-shadow: 0 4px 25px rgba(0, 0, 0, 0.3);
-      overflow: hidden;
-      animation: fadeIn 0.4s ease;
+      padding: 10px;            /* jarak kecil di sekitar gambar */
+      display: inline-block;    /* -> shrink-wrap ke ukuran gambar */
+      max-width: 95vw;          /* jangan melebihi lebar viewport */
+      max-height: 95vh;         /* jangan melebihi tinggi viewport */
+      box-shadow: 0 6px 30px rgba(0,0,0,0.35);
+      overflow: auto;           /* untuk layar kecil, bisa scroll jika perlu */
     }
     
-    /* Iframe untuk preview CV */
-    .cv-container iframe {
-      width: 100%;
-      height: 100%;
-      border: none;
-      border-radius: 12px;
+    /* gambar menyesuaikan container tanpa gepeng */
+    .cv-image {
+      display: block;
+      width: auto;
+      height: auto;
+      max-width: 100%;                  /* isi seluruh lebar container */
+      max-height: calc(95vh - 20px);    /* hindari melebihi viewport (20px utk padding) */
+      object-fit: contain;
+      border-radius: 8px;
+      margin: 0 auto;
     }
 
-    .cv-image {
-      max-width: 95vw;     
-      max-height: 95vh;  
-      width: auto;        
-      height: auto;
-      object-fit: contain;
-      border-radius: 10px;
-      box-shadow: 0 0 15px rgba(0,0,0,0.3);
-      display: block;
-      margin: auto;
-    }
-    
     /* Animasi muncul lembut */
     @keyframes fadeIn {
       from { opacity: 0; transform: translateY(-20px); }
@@ -474,5 +469,6 @@
       }
     </script>
 </body>
+
 
 
