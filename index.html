@@ -252,6 +252,15 @@
       border: none;
       border-radius: 12px;
     }
+
+    .cv-image {
+      width: 90%;
+      height: auto;
+      max-height: 90vh; /* agar tidak melebihi tinggi layar */
+      border-radius: 10px;
+      box-shadow: 0 0 15px rgba(0,0,0,0.3);
+    }
+
     
     /* Animasi muncul lembut */
     @keyframes fadeIn {
@@ -431,38 +440,34 @@
     <button class="back-btn" onclick="goBack()">Back</button>
   </div>
 
-<!-- Popup CV -->
-<div id="cv-overlay" class="cv-overlay" onclick="closeCV(event)">
-  <div class="cv-container">
-    <iframe src="CV-Farrel.png" frameborder="0"></iframe>
-  </div>
-</div>
-
+    <!-- Popup CV -->
+    <div id="cv-overlay" class="cv-overlay" onclick="closeCV(event)">
+      <div class="cv-container">
+        <img src="CV-Farrel.png" alt="CV Farrel" class="cv-image">
+      </div>
+    </div>
   
-  <script>
-    function showFavorites() {
-      document.getElementById('main-page').style.display = 'none';
-      document.getElementById('favorites-page').style.display = 'block';
-    }
-
-    function goBack() {
-      document.getElementById('favorites-page').style.display = 'none';
-      document.getElementById('main-page').style.display = 'flex';
-    }
-  function showCV() {
-    document.getElementById("cv-overlay").style.display = "flex";
-  }
-
-  function closeCV(event) {
-    const overlay = document.getElementById("cv-overlay");
-    const container = document.querySelector(".cv-container");
-    if (!container.contains(event.target)) {
-      overlay.style.display = "none";
-    }
-  }
-</script>
-
+    <script>
+      function showFavorites() {
+        document.getElementById('main-page').style.display = 'none';
+        document.getElementById('favorites-page').style.display = 'block';
+      }
+    
+      function goBack() {
+        document.getElementById('favorites-page').style.display = 'none';
+        document.getElementById('main-page').style.display = 'flex';
+      }
+    
+      function showCV() {
+        document.getElementById("cv-overlay").style.display = "flex";
+      }
+    
+      function closeCV(event) {
+        const overlay = document.getElementById("cv-overlay");
+        const container = document.querySelector(".cv-container");
+        if (!container.contains(event.target)) {
+          overlay.style.display = "none";
+        }
+      }
+    </script>
 </body>
-
-
-
