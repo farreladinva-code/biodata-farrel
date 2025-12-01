@@ -469,12 +469,6 @@
     </div>
   </div>
 
-      <!--Tombol ke halaman favorit -->
-      <button class="fav-btn" onclick="showFavorites()">See My Favorites</button>
-    </div>
-  </div>
-
-  <!--Halaman Favorites (disembunyikan awalnya) -->
   <div class="favorites-page" id="favorites-page" style="display: none;">
     <h2>Favorite Movie</h2>
     <ul>
@@ -505,7 +499,6 @@
     <button class="back-btn" onclick="goBack()">Back</button>
   </div>
 
-    <!-- Popup CV -->
     <div id="cv-overlay" class="cv-overlay" onclick="closeCV(event)">
       <div class="cv-container">
         <img src="CV-Farrel.png" alt="CV Farrel" class="cv-image">
@@ -534,11 +527,10 @@
           overlay.style.display = "none";
         }
       }
-      // Dropdown toggle
+ 
 document.querySelector(".dropdown-btn").addEventListener("click", function() {
   document.querySelector(".dropdown").classList.toggle("show");
 });
 
     </script>
 </body>
-
