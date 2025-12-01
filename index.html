@@ -178,7 +178,7 @@
       display: inline-block;
       margin-top: 15px;
       padding: 10px 20px;
-      background: #0077B5; /* warna khas Behance */
+      background: #0077B5; 
       color: white;
       text-decoration: none;
       border-radius: 8px;
@@ -224,7 +224,7 @@
       display: none;
       justify-content: center;
       align-items: center;
-      padding: 12px;            /* beri sedikit padding agar tidak nempel ke tepi layar */
+      padding: 12px;     
       box-sizing: border-box;
       z-index: 999;
     }
@@ -232,34 +232,31 @@
     .cv-container {
       background: white;
       border-radius: 12px;
-      padding: 10px;            /* jarak kecil di sekitar gambar */
-      display: inline-block;    /* -> shrink-wrap ke ukuran gambar */
-      max-width: 95vw;          /* jangan melebihi lebar viewport */
-      max-height: 95vh;         /* jangan melebihi tinggi viewport */
+      padding: 10px;            
+      display: inline-block;   
+      max-width: 95vw;         
+      max-height: 95vh;    
       box-shadow: 0 6px 30px rgba(0,0,0,0.35);
-      overflow: auto;           /* untuk layar kecil, bisa scroll jika perlu */
+      overflow: auto;     
     }
     
-    /* gambar menyesuaikan container tanpa gepeng */
     .cv-image {
       display: block;
       width: auto;
       height: auto;
-      max-width: 100%;                  /* isi seluruh lebar container */
-      max-height: calc(95vh - 20px);    /* hindari melebihi viewport (20px utk padding) */
+      max-width: 100%;        
+      max-height: calc(95vh - 20px);    
       object-fit: contain;
       border-radius: 8px;
       margin: 0 auto;
     }
-
-    /* Animasi muncul lembut */
+    
     @keyframes fadeIn {
       from { opacity: 0; transform: translateY(-20px); }
       to { opacity: 1; transform: translateY(0); }
     }
 
     
-    /* Tombol favorit */
     .favorite-btn {
       display: block;
       margin: 20px auto 0;
@@ -324,16 +321,16 @@
 
     .poster-row {
     display: flex;
-    justify-content: center; /* agar posisinya di tengah */
-    gap: 20px; /* jarak antar gambar */
+    justify-content: center; 
+    gap: 20px;
     margin-top: 15px;
-    margin-bottom: 30px; /* jarak ke bagian favorit berikutnya */
+    margin-bottom: 30px; 
     }
 
     .poster-row img {
-    width: 150px;      /* ukuran lebar seragam */
-    height: 220px;     /* tinggi seragam */
-    object-fit: cover; /* supaya gambar tidak terdistorsi */
+    width: 150px;     
+    height: 220px;    
+    object-fit: cover; 
     border-radius: 10px;
     box-shadow: 0 4px 10px rgba(0,0,0,0.2);
     transition: transform 0.3s ease;
@@ -350,72 +347,68 @@
     from { opacity: 0; transform: translateY(20px); }
     to { opacity: 1; transform: translateY(0); }
     }
-    /* ===== DROPDOWN TOMBOL UTAMA ===== */
-.dropdown {
-  position: relative;
-  margin-top: 20px;
-}
-
-.dropdown-btn {
-  width: 100%;
-  padding: 12px 20px;
-  background: #3A5795;
-  color: white;
-  font-size: 16px;
-  border: none;
-  border-radius: 10px;
-  cursor: pointer;
-  font-weight: bold;
-  transition: background 0.3s ease, transform 0.2s ease;
-}
-
-.dropdown-btn:hover {
-  background-color: #10f6cc;
-  color: #333;
-  transform: scale(1.05);
-  box-shadow: 0 0 20px #10f6cc;
-}
-
-/* ===== ISI DROPDOWN ===== */
-.dropdown-content {
-  display: none;
-  position: absolute;
-  width: 100%;
-  background: white;
-  border-radius: 12px;
-  box-shadow: 0 4px 20px rgba(0,0,0,0.2);
-  margin-top: 10px;
-  overflow: hidden;
-  z-index: 10;
-}
-
-.dropdown-content a {
-  display: block;
-  padding: 12px 18px;
-  text-decoration: none;
-  color: #3A5795;
-  font-weight: 600;
-  transition: background 0.3s ease, transform 0.2s ease;
-}
-
-/* Hover identik dengan tombol CV kamu */
-.dropdown-content a:hover {
-  background-color: #10f6cc;
-  color: #333;
-  transform: scale(1.03);
-  box-shadow: 0 0 15px #10f6cc inset;
-}
-
-/* tampilkan dropdown saat tombol ditekan */
-.dropdown.show .dropdown-content {
-  display: block;
-}
+    
+    .dropdown {
+      position: relative;
+      margin-top: 20px;
+    }
+    
+    .dropdown-btn {
+      width: 100%;
+      padding: 12px 20px;
+      background: #3A5795;
+      color: white;
+      font-size: 16px;
+      border: none;
+      border-radius: 10px;
+      cursor: pointer;
+      font-weight: bold;
+      transition: background 0.3s ease, transform 0.2s ease;
+    }
+    
+    .dropdown-btn:hover {
+      background-color: #10f6cc;
+      color: #333;
+      transform: scale(1.05);
+      box-shadow: 0 0 20px #10f6cc;
+    }
+    
+    .dropdown-content {
+      display: none;
+      position: absolute;
+      width: 100%;
+      background: white;
+      border-radius: 12px;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.2);
+      margin-top: 10px;
+      overflow: hidden;
+      z-index: 10;
+    }
+    
+    .dropdown-content a {
+      display: block;
+      padding: 12px 18px;
+      text-decoration: none;
+      color: #3A5795;
+      font-weight: 600;
+      transition: background 0.3s ease, transform 0.2s ease;
+    }
+    
+    .dropdown-content a:hover {
+      background-color: #10f6cc;
+      color: #333;
+      transform: scale(1.03);
+      box-shadow: 0 0 15px #10f6cc inset;
+    }
+    
+    .dropdown.show .dropdown-content {
+      display: block;
+    }
 
   </style>
 </head>
 <body>
 
-  <!--Container judul & foto -->
   <div class="container">
     <h1 class="bluebox">Personal Information</h1>
     <div class="photo-wrapper">
@@ -423,9 +416,7 @@
     </div>
   </div>
 
-  <!--Halaman utama -->
   <div class="main-content" id="main-page">
-    <!--Konten kiri -->
     <div class="content">
       <h2>Educational Background</h2>
       <ol>
@@ -447,7 +438,6 @@
       </table>
     </div>
 
-    <!--Sidebar kanan -->
     <div class="sidebar">
       <h3>🎧 binge-listening to...</h3>
       <audio controls>
@@ -528,9 +518,9 @@
         }
       }
  
-document.querySelector(".dropdown-btn").addEventListener("click", function() {
-  document.querySelector(".dropdown").classList.toggle("show");
-});
+      document.querySelector(".dropdown-btn").addEventListener("click", function() {
+        document.querySelector(".dropdown").classList.toggle("show");
+      });
 
     </script>
 </body>
